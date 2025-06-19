@@ -33,7 +33,7 @@ bool searchArray(vector<int>& arr, int n, int k) {
         }
         //Checking which half is sorted
         //Is it left sorted?
-        else if(arr[low] < arr[mid]) {
+        else if(arr[low] <= arr[mid]) {
             //If yes, then does the element lie in left half?
             if(arr[low] <= k && k <= arr[mid]) {
                 //Triming down the right half
