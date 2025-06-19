@@ -31,37 +31,21 @@ int findRotations(vector<int>& arr) {
         //If the search space is already sorted
         //then the minimum element will be the leftmost
         if(arr[low] <= arr[high]) {
-            if(arr[low] < ans) {
-                ans = arr[low];
-                index = low;
-                break;
-            }
+            return low;
         }
         //Else we are checking which half is sorted
         //Is it left sorted?
         else if(arr[low] <= arr[mid]) {
-            //Picking the minimum from the left half
             //and eliminating the half
-            //Here, minimum is leftmost element
-            if(arr[low] < ans) {
-                ans = arr[low];
-                index = low;
-            }
             low = mid + 1;
         }
         //Else it will definitely be right sorted
-        else {
-            //Picking the minimum from the right half 
+        else { 
             //and eliminating the right half
-            //Here, the minimum is the middle element
-            if(arr[mid] < ans) {
-                ans = arr[mid];
-                index = mid;
-            }
-            high = mid - 1;
+            high = mid;
         }
     }
-    return index;
+    return 0;
 }
 
 int main() {
