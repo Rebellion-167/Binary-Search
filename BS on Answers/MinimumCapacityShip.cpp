@@ -90,3 +90,13 @@ int main() {
 
     return 0;
 }
+
+/**
+ * Time Complexity : O(N * log M) where M = sum - max + 1, sum is the summation of all
+ * weights of the container and max is the maximum weight of the containers. 
+ * Reason : We are applying Binary Search Algorithm on this range and for every day, 
+ * we are calling a function that iterates through the entire array of size N.
+ * 
+ * Space Complexity: O(1)
+ * Reason : We are not using any extra data structure
+ */
