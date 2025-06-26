@@ -33,7 +33,7 @@ int findRow(vector<vector<int>>& matrix) {
     int max_cnt = 0;
     int index = -1;
     for(int i=0;i<n;i++) {
-        int cnt_ones = m - *lower_bound(matrix[i].begin(), matrix[i].end(), 1);
+        int cnt_ones = matrix[i].end() - lower_bound(matrix[i].begin(), matrix[i].end(), 1);
         if(cnt_ones > max_cnt) {
             max_cnt = cnt_ones;
             index = i;
