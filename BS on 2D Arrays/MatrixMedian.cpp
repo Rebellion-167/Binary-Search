@@ -25,9 +25,9 @@
 using namespace std;
 
 //Implementing Upper Bound
-int upperBound(vector<int>& arr, int n, int x) {
-    int low = 0, high = n - 1;
-    int ans = n;
+int upperBound(vector<int>& arr, int x) {
+    int low = 0, high = arr.size() - 1;
+    int ans = arr.size();
 
     while(low <= high) {
         int mid = (low + high) / 2;
@@ -43,10 +43,10 @@ int upperBound(vector<int>& arr, int n, int x) {
     return ans;
 }
 
-int countSmallEqual(vector<vector<int>>& mat, int m, int n, int x) {
+int countSmallEqual(vector<vector<int>>& mat, int x) {
     int cnt = 0;
-    for(int i=0;i<m;i++) {
-        cnt += upperBound(mat[i], n, x);
+    for(int i=0;i<mat.size();i++) {
+        cnt += upperBound(mat[i], x);
     }
     return cnt;
 }
@@ -58,7 +58,7 @@ int findMedian(vector<vector<int>>& mat) {
     int low = INT_MAX, high = INT_MIN;
 
     //pointing low and high
-    for(int i=0;i<m;i++) {
+    for(int i=0;i<n;i++) {
         low = min(low, mat[i][0]);
         high = max(high, mat[i][m - 1]);
     }
@@ -66,7 +66,7 @@ int findMedian(vector<vector<int>>& mat) {
     int req = (n * m) / 2;
     while(low <= high) {
         int mid = (low + high) / 2;
-        int smallEqual = countSmallEqual(mat, m, n, mid);
+        int smallEqual = countSmallEqual(mat, mid);
         if(smallEqual <= req) {
             low = mid + 1;
         } else {
